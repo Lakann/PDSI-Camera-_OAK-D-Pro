@@ -9,5 +9,5 @@
 <!-- Próximo tópico -->
 
 <details>
-  <sumary><h2> Tutoriais</h2></sumary>
+  <sumary><h2> Tutoriais </h2></sumary>
 </details>
