@@ -1,7 +1,7 @@
 # TUTORIAIS
 
 <details>
-  <summary><h2><strong> Instalando as dependências da câmera </strong></h2></summary>
+  <summary><h2> Instalando as dependências da câmera </h2></summary>
   
  
 </details>
