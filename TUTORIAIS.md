@@ -1,7 +1,7 @@
 # TUTORIAIS
 
 <details>
-  <summary> Instalando as dependências da câmera </summary>
+  <summary> # Instalando as dependências da câmera </summary>
   
   ola, treco, bananas
   
