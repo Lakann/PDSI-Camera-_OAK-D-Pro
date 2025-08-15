@@ -1,24 +1,8 @@
 # TUTORIAIS
 
 <details>
-  <summary> **Instalando as dependências da câmera** </summary>
+  <summary><strong> Instalando as dependências da câmera </strong></summary>
   
-  ola, treco, bananas
-  
-  olha o pe
-  
-  trigo?
-  
-  talvez
-  
-  seca e zeca
-  
-  treco
-  
+ 
 </details>
 
-casais 
-
-patro e pe
-
-tico
