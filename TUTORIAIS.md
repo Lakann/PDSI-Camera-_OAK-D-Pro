@@ -2,6 +2,7 @@
 
 <details>
   <summary> Instalando as dependências da câmera </summary>
+  
   ola, treco, bananas
   
   olha o pe
@@ -15,6 +16,7 @@
   treco
   
 </details>
+
 casais 
 
 patro e pe
