@@ -14,7 +14,7 @@
   Após realizar o download e a instalação das dependências da câmera, assim como a instalação correta da OpenCV, já é possível executar alguns exemplos práticos. Esses exemplos podem ser feitos com a câmera OAK-D ou, caso você não possua a câmera no momento, podem ser adaptados para a webcam do notebook ou PC.
    
   <details>
-    <summary><h3 style="display:inline; margin-left:20px">👋 Hello World</h3></summary>
+    <summary><h3 style="margin-left:20px">👋 Hello World</h3></summary>
 
     Aqui você coloca o conteúdo do exemplo Hello World.
     
