@@ -21,7 +21,7 @@
     Esse exemplo pode ser feito na câmera OAK-D ou na câmera do seu Notebook ou PC, se atente a qual opção deve usar:
 
       <details> 
-        <summary><h3 style="margin-left:20px"> ## Notebook </h3></summary>
+        <summary><span style="margin-left:40px; font-size:1.1em; font-weight:bold;">💻 Notebook</span></summary>
       </details>
     
   </details>
