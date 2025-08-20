@@ -13,12 +13,16 @@
 
   Após realizar o download e a instalação das dependências da câmera, assim como a instalação correta da OpenCV, já é possível executar alguns exemplos práticos. Esses exemplos podem ser feitos com a câmera OAK-D ou, caso você não possua a câmera no momento, podem ser adaptados para a webcam do notebook ou PC.
   
-  Esses exemplos podem ser encontrados no site oficial da Luxonis em <a href="https://docs.luxonis.com/">Docs Luxonis</a>
+  Para mais detalhes e assunto aprofundado, esses e mais exemplos podem ser encontrados no site oficial da Luxonis em <a href="https://docs.luxonis.com/">Docs Luxonis</a>.
    
   <details>
     <summary><h3 style="margin-left:20px">#👋 Hello World</h3></summary>
 
-    Aqui você coloca o conteúdo do exemplo Hello World.
+    Esse exemplo pode ser feito na câmera OAK-D ou na câmera do seu Notebook ou PC, se atente a qual opção deve usar:
+
+      <details> 
+        <summary><h3> ## Notebook </h3></summary>
+      </details>
     
   </details>
 
