@@ -15,7 +15,7 @@ Após realizar o download e a instalação das dependências da câmera, assim c
 Para mais detalhes, esses e mais exemplos podem ser encontrados no site oficial da Luxonis em <a href="https://docs.luxonis.com/">Docs Luxonis</a>.
 
 <details>
-<summary>## 👋 Hello World</summary>
+<summary><strong style="font-size:1.5em;">👋 Hello World</strong></summary>
 
 Esse exemplo foi retirado do site da Luxonis e pode ser executado tanto na câmera OAK-D quanto na câmera do seu notebook/PC.
 
