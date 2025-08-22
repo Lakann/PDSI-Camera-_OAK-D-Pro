@@ -45,9 +45,12 @@ cam_rgb.setPreviewSize(300, 300)  # 300x300 será o tamanho do frame de pré-vis
 cam_rgb.setInterleaved(False)
 
 detection_nn = pipeline.createMobileNetDetectionNetwork()
+
 # O blob é o arquivo da Rede Neural, compilado para MyriadX. Ele contém tanto a definição quanto os pesos do modelo
 # Estamos usando a ferramenta blobconverter para obter automaticamente o blob do MobileNetSSD a partir do OpenVINO Model Zoo
+
 detection_nn.setBlobPath(blobconverter.from_zoo(name='mobilenet-ssd', shaves=6))
+
 # Em seguida, filtramos as detecções que estão abaixo de um limite de confiança. A confiança pode estar entre <0..1>
 detection_nn.setConfidenceThreshold(0.5)
 
@@ -70,6 +73,7 @@ with depthai.Device(pipeline) as device:
     # Para consumir os resultados do dispositivo, obtemos duas filas de saída com os nomes de stream definidos anteriormente
     q_rgb = device.getOutputQueue("rgb")
     q_nn = device.getOutputQueue("nn")
+
     # Aqui alguns valores padrão são definidos. Frame será uma imagem do stream "rgb" e detections conterá os resultados da rede neural
     frame = None
     detections = []
@@ -100,8 +104,10 @@ with depthai.Device(pipeline) as device:
             for detection in detections:
                 # Para cada caixa delimitadora, primeiro normalizamos para corresponder ao tamanho do frame
                 bbox = frameNorm(frame, (detection.xmin, detection.ymin, detection.xmax, detection.ymax))
+
                 # E então desenhamos um retângulo no frame para mostrar o resultado
                 cv2.rectangle(frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (255, 0, 0), 2)
+
             # Após todo o desenho estar concluído, mostramos o frame na tela
             cv2.imshow("preview", frame)
 
