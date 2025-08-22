@@ -115,67 +115,67 @@ Usaremos a saída **preview**, redimensionada para 300x300, de forma a se ajusta
 ### Notebook
 
 
-      import cv2
-      import numpy as np
-      
-      # ----------------- CONFIGURAÇÃO -----------------
-      # Confiança mínima para exibir detecções
-      CONFIDENCE_THRESHOLD = 0.5
-      
-      # Caminhos dos arquivos do modelo MobileNet-SSD
-      # Você precisa baixar esses arquivos:
-      # 1. prototxt: https://github.com/chuanqi305/MobileNet-SSD/blob/master/deploy.prototxt
-      # 2. caffemodel: https://github.com/chuanqi305/MobileNet-SSD/blob/master/MobileNetSSD_deploy.caffemodel
-      MODEL_PROTOTXT = "mobilenet_ssd.prototxt"
-      MODEL_WEIGHTS = "mobilenet_ssd.caffemodel"
-      
-      # ----------------- INICIALIZAÇÃO -----------------
-      cap = cv2.VideoCapture(0)  # 0 = webcam interna
-      if not cap.isOpened():
-          raise RuntimeError("Não foi possível abrir a webcam do notebook")
-      
-      # Carrega o modelo MobileNet-SSD
-      net = cv2.dnn.readNetFromCaffe(MODEL_PROTOTXT, MODEL_WEIGHTS)
-      
-      # Lista de classes que o MobileNet-SSD detecta
-      CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
-                 "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
-                 "dog", "horse", "motorbike", "person", "pottedplant",
-                 "sheep", "sofa", "train", "tvmonitor"]
-      
-      # ----------------- LOOP PRINCIPAL -----------------
-      while True:
-          ret, frame = cap.read()
-          if not ret:
-              break
-      
-          # Redimensiona e pré-processa o frame
-          blob = cv2.dnn.blobFromImage(frame, 0.007843, (300, 300), 127.5)
-          net.setInput(blob)
-          detections = net.forward()
-      
-          # Percorre todas as detecções
-          for i in range(detections.shape[2]):
-              confidence = detections[0, 0, i, 2]
-              if confidence > CONFIDENCE_THRESHOLD:
-                  idx = int(detections[0, 0, i, 1])
-                  box = detections[0, 0, i, 3:7] * np.array([frame.shape[1], frame.shape[0],
-                                                             frame.shape[1], frame.shape[0]])
-                  (startX, startY, endX, endY) = box.astype("int")
-      
-                  # Desenha o retângulo e a classe detectada
-                  label = f"{CLASSES[idx]}: {confidence*100:.1f}%"
-                  cv2.rectangle(frame, (startX, startY), (endX, endY), (255, 0, 0), 2)
-                  y = startY - 15 if startY - 15 > 15 else startY + 15
-                  cv2.putText(frame, label, (startX, y),
-                              cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
-      
-          # Mostra o frame com as detecções
-          cv2.imshow("Webcam Preview", frame)
-      
-          # Sai ao pressionar 'q'
-          if cv2.waitKey(1) & 0xFF == ord('q'):
-              break
-      
-      cap.release()
-      cv2.destroyAllWindows()
+   import cv2
+   import numpy as np
+   
+   # ----------------- CONFIGURAÇÃO -----------------
+   # Confiança mínima para exibir detecções
+   CONFIDENCE_THRESHOLD = 0.5
+   
+   # Caminhos dos arquivos do modelo MobileNet-SSD
+   # Você precisa baixar esses arquivos:
+   # 1. prototxt: https://github.com/chuanqi305/MobileNet-SSD/blob/master/deploy.prototxt
+   # 2. caffemodel: https://github.com/chuanqi305/MobileNet-SSD/blob/master/MobileNetSSD_deploy.caffemodel
+   MODEL_PROTOTXT = "mobilenet_ssd.prototxt"
+   MODEL_WEIGHTS = "mobilenet_ssd.caffemodel"
+   
+   # ----------------- INICIALIZAÇÃO -----------------
+   cap = cv2.VideoCapture(0)  # 0 = webcam interna
+   if not cap.isOpened():
+       raise RuntimeError("Não foi possível abrir a webcam do notebook")
+   
+   # Carrega o modelo MobileNet-SSD
+   net = cv2.dnn.readNetFromCaffe(MODEL_PROTOTXT, MODEL_WEIGHTS)
+   
+   # Lista de classes que o MobileNet-SSD detecta
+   CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
+              "bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
+              "dog", "horse", "motorbike", "person", "pottedplant",
+              "sheep", "sofa", "train", "tvmonitor"]
+   
+   # ----------------- LOOP PRINCIPAL -----------------
+   while True:
+       ret, frame = cap.read()
+       if not ret:
+           break
+   
+       # Redimensiona e pré-processa o frame
+       blob = cv2.dnn.blobFromImage(frame, 0.007843, (300, 300), 127.5)
+       net.setInput(blob)
+       detections = net.forward()
+   
+       # Percorre todas as detecções
+       for i in range(detections.shape[2]):
+           confidence = detections[0, 0, i, 2]
+           if confidence > CONFIDENCE_THRESHOLD:
+               idx = int(detections[0, 0, i, 1])
+               box = detections[0, 0, i, 3:7] * np.array([frame.shape[1], frame.shape[0],
+                                                          frame.shape[1], frame.shape[0]])
+               (startX, startY, endX, endY) = box.astype("int")
+   
+               # Desenha o retângulo e a classe detectada
+               label = f"{CLASSES[idx]}: {confidence*100:.1f}%"
+               cv2.rectangle(frame, (startX, startY), (endX, endY), (255, 0, 0), 2)
+               y = startY - 15 if startY - 15 > 15 else startY + 15
+               cv2.putText(frame, label, (startX, y),
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+   
+       # Mostra o frame com as detecções
+       cv2.imshow("Webcam Preview", frame)
+   
+       # Sai ao pressionar 'q'
+       if cv2.waitKey(1) & 0xFF == ord('q'):
+           break
+   
+   cap.release()
+   cv2.destroyAllWindows()
