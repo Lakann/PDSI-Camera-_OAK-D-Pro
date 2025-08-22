@@ -119,7 +119,7 @@ with depthai.Device(pipeline) as device:
 ### Notebook
 
 ```
-   import cv2
+import cv2
 import numpy as np
 
 # ----------------- CONFIGURAÇÃO -----------------
