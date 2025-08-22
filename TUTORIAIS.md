@@ -18,7 +18,7 @@
   <details>
     <summary><h3 style="margin-left:20px">#👋 Hello World</h3></summary>
 
-    Esse exemplo pode ser feito na câmera OAK-D ou na câmera do seu Notebook ou PC, se atente a qual opção deve usar:
+    Esse exemplo foi retirado do site da Luxonis, ele pode ser feito na câmera OAK-D ou na câmera do seu Notebook ou PC, se atente a qual opção deve usar:
 
       <details> 
         <summary><span style="margin-left:40px; font-size:1.1em; font-weight:bold;">💻 Notebook</span></summary>
@@ -28,3 +28,41 @@
 
 </details>
 
+
+
+
+<details>
+  <summary>📚 **Tutoriais**</summary>
+
+  <details>
+    <summary>&emsp;👋 **Hello World**</summary>
+
+    <details>
+      <summary>&emsp;&emsp;💻 **Notebook**</summary>
+      Conteúdo aqui
+    </details>
+  </details>
+</details>
+
+
+
+
+
+<details>
+  <summary>📚 **Tutoriais**</summary>
+
+  Após realizar o download e a instalação das dependências da câmera, assim como a instalação correta da OpenCV, já é possível executar alguns exemplos práticos.  
+
+  <details>
+    <summary>👋 **Hello World**</summary>
+
+    Esse exemplo foi retirado do site da Luxonis.  
+
+    <details>
+      <summary>💻 **Notebook**</summary>
+
+      Aqui vai o conteúdo específico para Notebook.
+    </details>
+
+  </details>
+</details>
