@@ -28,7 +28,7 @@ Usaremos a saída **preview**, redimensionada para 300x300, de forma a se ajusta
 ### Câmera
 
 ```
-# first, import all necessary modules
+# Primeiro, importamos todos os módulos necessários
 from pathlib import Path
 
 import blobconverter
@@ -39,19 +39,19 @@ import numpy as np
 
 pipeline = depthai.Pipeline()
 
-# First, we want the Color camera as the output
+# Primeiro, queremos a câmera de cor como saída
 cam_rgb = pipeline.createColorCamera()
-cam_rgb.setPreviewSize(300, 300)  # 300x300 will be the preview frame size, available as 'preview' output of the node
+cam_rgb.setPreviewSize(300, 300)  # 300x300 será o tamanho do frame de pré-visualização, disponível como saída 'preview' do nó
 cam_rgb.setInterleaved(False)
 
 detection_nn = pipeline.createMobileNetDetectionNetwork()
-# Blob is the Neural Network file, compiled for MyriadX. It contains both the definition and weights of the model
-# We're using a blobconverter tool to retreive the MobileNetSSD blob automatically from OpenVINO Model Zoo
+# O blob é o arquivo da Rede Neural, compilado para MyriadX. Ele contém tanto a definição quanto os pesos do modelo
+# Estamos usando a ferramenta blobconverter para obter automaticamente o blob do MobileNetSSD a partir do OpenVINO Model Zoo
 detection_nn.setBlobPath(blobconverter.from_zoo(name='mobilenet-ssd', shaves=6))
-# Next, we filter out the detections that are below a confidence threshold. Confidence can be anywhere between <0..1>
+# Em seguida, filtramos as detecções que estão abaixo de um limite de confiança. A confiança pode estar entre <0..1>
 detection_nn.setConfidenceThreshold(0.5)
 
-# XLinkOut is a "way out" from the device. Any data you want to transfer to host need to be send via XLink
+# XLinkOut é uma "saída" do dispositivo. Qualquer dado que você queira transferir para o host precisa ser enviado via XLink
 xout_rgb = pipeline.createXLinkOut()
 xout_rgb.setStreamName("rgb")
 
@@ -62,20 +62,20 @@ cam_rgb.preview.link(xout_rgb.input)
 cam_rgb.preview.link(detection_nn.input)
 detection_nn.out.link(xout_nn.input)
 
-# Pipeline is now finished, and we need to find an available device to run our pipeline
-# we are using context manager here that will dispose the device after we stop using it
+# O pipeline agora está finalizado e precisamos encontrar um dispositivo disponível para executá-lo
+# Estamos usando um context manager aqui, que irá liberar o dispositivo após o uso
 with depthai.Device(pipeline) as device:
-    # From this point, the Device will be in "running" mode and will start sending data via XLink
+    # A partir deste ponto, o dispositivo estará em modo "executando" e começará a enviar dados via XLink
 
-    # To consume the device results, we get two output queues from the device, with stream names we assigned earlier
+    # Para consumir os resultados do dispositivo, obtemos duas filas de saída com os nomes de stream definidos anteriormente
     q_rgb = device.getOutputQueue("rgb")
     q_nn = device.getOutputQueue("nn")
-    # Here, some of the default values are defined. Frame will be an image from "rgb" stream, detections will contain nn results
+    # Aqui alguns valores padrão são definidos. Frame será uma imagem do stream "rgb" e detections conterá os resultados da rede neural
     frame = None
     detections = []
 
-    # Since the detections returned by nn have values from <0..1> range, they need to be multiplied by frame width/height to
-    # receive the actual position of the bounding box on the image
+    # Como as detecções retornadas pela rede neural possuem valores no intervalo <0..1>, 
+    # eles precisam ser multiplicados pela largura/altura do frame para obter a posição real da caixa delimitadora na imagem
     def frameNorm(frame, bbox):
         normVals = np.full(len(bbox), frame.shape[0])
         normVals[::2] = frame.shape[1]
@@ -83,31 +83,32 @@ with depthai.Device(pipeline) as device:
 
 
     while True:
-        # we try to fetch the data from nn/rgb queues. tryGet will return either the data packet or None if there isn't any
+        # Tentamos buscar os dados das filas nn/rgb. tryGet retorna ou o pacote de dados ou None se não houver nada
         in_rgb = q_rgb.tryGet()
         in_nn = q_nn.tryGet()
 
         if in_rgb is not None:
-            # If the packet from RGB camera is present, we're retrieving the frame in OpenCV format using getCvFrame
+            # Se o pacote da câmera RGB estiver presente, recuperamos o frame no formato OpenCV usando getCvFrame
             frame = in_rgb.getCvFrame()
 
         if in_nn is not None:
-            # when data from nn is received, we take the detections array that contains mobilenet-ssd results
+            # Quando os dados da rede neural são recebidos, pegamos o array de detecções que contém os resultados do mobilenet-ssd
             detections = in_nn.detections
 
 
         if frame is not None:
             for detection in detections:
-                # for each bounding box, we first normalize it to match the frame size
+                # Para cada caixa delimitadora, primeiro normalizamos para corresponder ao tamanho do frame
                 bbox = frameNorm(frame, (detection.xmin, detection.ymin, detection.xmax, detection.ymax))
-                # and then draw a rectangle on the frame to show the actual result
+                # E então desenhamos um retângulo no frame para mostrar o resultado
                 cv2.rectangle(frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (255, 0, 0), 2)
-            # After all the drawing is finished, we show the frame on the screen
+            # Após todo o desenho estar concluído, mostramos o frame na tela
             cv2.imshow("preview", frame)
 
-        # at any time, you can press "q" and exit the main loop, therefore exiting the program itself
+        # A qualquer momento, você pode pressionar "q" para sair do loop principal, encerrando o programa
         if cv2.waitKey(1) == ord('q'):
             break
+
 ```
 
 
