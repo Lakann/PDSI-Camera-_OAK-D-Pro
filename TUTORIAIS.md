@@ -27,7 +27,7 @@ Usaremos a saída **preview**, redimensionada para 300x300, de forma a se ajusta
     
 ### Câmera
 
-``
+```
 # first, import all necessary modules
 from pathlib import Path
 
