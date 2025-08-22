@@ -20,7 +20,6 @@ Após realizar o download e a instalação das dependências da câmera, assim c
 Para mais detalhes, esses e mais exemplos podem ser encontrados no site oficial da Luxonis em <a href="https://docs.luxonis.com/">Docs Luxonis</a>.
 
 <p>&nbsp;</p>
-<p>&nbsp;</p>
 
 <details>
 <summary><strong>👋 Hello World</strong></summary>
@@ -31,12 +30,16 @@ Para mais detalhes, esses e mais exemplos podem ser encontrados no site oficial 
 Esse exemplo foi retirado do site da Luxonis e pode ser executado tanto na câmera OAK-D quanto na câmera do seu notebook/PC.
 
 ⚠️ Atenção: antes de rodar o código, certifique-se de selecionar o interpretador Python correto — aquele em que você instalou o OpenCV, o DepthAI e as demais dependências. Recomenda-se que essas bibliotecas sejam instaladas e configuradas dentro de um ambiente virtual (venv) para garantir isolamento e evitar conflitos com outros projetos.
-    
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>  
+
 Vamos mergulhar nos conceitos básicos usando um exemplo. Vamos criar uma aplicação simples que executa uma rede neural de detecção de objetos e transmite vídeo em cores com        as detecções da rede neural visualizadas. Usaremos a API Python do DepthAI para criar a aplicação.
 
 O primeiro nó que adicionaremos é o **ColorCamera**. Esse nó selecionará automaticamente a câmera central (que, na maioria dos dispositivos, é a câmera de cor) e fornecerá o fluxo de vídeo para o próximo nó no pipeline.
 Usaremos a saída **preview**, redimensionada para 300x300, de forma a se ajustar ao tamanho de entrada do **mobilenet-ssd** (que definiremos mais adiante).
-    
+<p>&nbsp;</p>
+<p>&nbsp;</p>    
 ### Câmera
 
 ```
@@ -200,6 +203,7 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 ```
-
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 ## Para fechar as janelas basta apertar "q"
 </details>
