@@ -18,11 +18,17 @@
   <details>
     <summary><h3 style="margin-left:20px">#👋 Hello World</h3></summary>
 
-    Esse exemplo foi retirado do site da Luxonis, ele pode ser feito na câmera OAK-D ou na câmera do seu Notebook ou PC, se atente a qual opção deve usar:
+    Esse exemplo foi retirado do site da Luxonis e pode ser executado tanto na câmera OAK-D quanto na câmera do seu notebook/PC.
 
-      <details> 
-        <summary><span style="margin-left:40px; font-size:1.1em; font-weight:bold;">💻 Notebook</span></summary>
-      </details>
+    ⚠️ Atenção: antes de rodar o código, certifique-se de selecionar o interpretador Python correto — aquele em que você instalou o OpenCV, o DepthAI e as demais dependências.
+    Recomenda-se que essas bibliotecas sejam instaladas e configuradas dentro de um ambiente virtual (venv) para garantir isolamento e evitar conflitos com outros projetos.
+    
+    Vamos mergulhar nos conceitos básicos usando um exemplo. Vamos criar uma aplicação simples que executa uma rede neural de detecção de objetos e transmite vídeo em cores com        as detecções da rede neural visualizadas. Usaremos a API Python do DepthAI para criar a aplicação.
+    ##Câmera
+
+
+
+    ##Notebook
     
   </details>
 
