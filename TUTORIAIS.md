@@ -24,11 +24,12 @@
     Recomenda-se que essas bibliotecas sejam instaladas e configuradas dentro de um ambiente virtual (venv) para garantir isolamento e evitar conflitos com outros projetos.
     
     Vamos mergulhar nos conceitos básicos usando um exemplo. Vamos criar uma aplicação simples que executa uma rede neural de detecção de objetos e transmite vídeo em cores com        as detecções da rede neural visualizadas. Usaremos a API Python do DepthAI para criar a aplicação.
-    ##Câmera
+    
+    ## Câmera
 
 
 
-    ##Notebook
+    ## Notebook
     
   </details>
 
