@@ -40,7 +40,7 @@ Usaremos a saída **preview**, redimensionada para 300x300, de forma a se ajusta
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
-### Câmera
+### Câmera OAK-D
 
 ```
 # Primeiro, importamos todos os módulos necessários
