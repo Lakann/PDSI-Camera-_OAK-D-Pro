@@ -13,8 +13,9 @@ Instalando as dependências da câmera
 Após realizar o download e a instalação das dependências da câmera, assim como a instalação correta da OpenCV, já é possível executar alguns exemplos práticos. Esses exemplos podem ser feitos com a câmera OAK-D ou, caso você não possua a câmera no momento, podem ser adaptados para a webcam do notebook ou PC.
   
 Para mais detalhes, esses e mais exemplos podem ser encontrados no site oficial da Luxonis em <a href="https://docs.luxonis.com/">Docs Luxonis</a>.
-   
-## 👋 Hello World
+
+<details>
+summary>## 👋 Hello World</summary>
 
 Esse exemplo foi retirado do site da Luxonis e pode ser executado tanto na câmera OAK-D quanto na câmera do seu notebook/PC.
 
@@ -193,3 +194,4 @@ cv2.destroyAllWindows()
 ```
 
 ## Para fechar as janelas basta apertar "q"
+</details>
