@@ -15,7 +15,7 @@ Instalando as dependências da câmera
 
 <p>&nbsp;</p>
 
-Após realizar o download e a instalação das dependências da câmera, assim como a instalação correta da OpenCV, já é possível executar alguns exemplos práticos. Esses exemplos podem ser feitos com a câmera OAK-D ou, caso você não possua a câmera no momento, podem ser adaptados para a webcam do notebook ou PC.
+Após realizar o download e a instalação das dependências da câmera, assim como a instalação correta da OpenCV, já é possível executar alguns exemplos práticos. Esses exemplos podem ser feitos com a câmera OAK-D ou, caso você não possua a câmera no momento, alguns podem ser adaptados para a webcam do notebook ou PC.
   
 Para mais detalhes, esses e mais exemplos podem ser encontrados no site oficial da Luxonis em <a href="https://docs.luxonis.com/">Docs Luxonis</a>.
 
