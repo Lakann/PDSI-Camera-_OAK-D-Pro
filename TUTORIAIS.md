@@ -1,7 +1,8 @@
 # TUTORIAIS
 
 Instalando as dependências da câmera
-   Link para instalar as dependencias da câmera (abra em uma nova guia): <a href="https://docs.luxonis.com/software/depthai/manual-install/#Manual%20DepthAI%20installation-Installing%20dependencies">Clique aqui</a>
+   
+   Link para instalar as dependencias necessárias, abra o link em uma nova guia: <a href="https://docs.luxonis.com/software/depthai/manual-install/#Manual%20DepthAI%20installation-Installing%20dependencies">Clique aqui</a>
  
 <p>&nbsp;</p>
 <p>&nbsp;</p>
